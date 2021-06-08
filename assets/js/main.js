@@ -5,15 +5,25 @@ Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori pe
 */
 
 const app = new Vue({
-    el: '#app',
-    data:{
-        movies: [],
-        shows: [],
-    },
-    methods:{},
-    mounted(){
-        axios
-        .get("https://api.themoviedb.org/3/")
-
-    },
+  el: "#app",
+  data: {
+    movies: [],
+    shows: [],
+    query: "",
+    api_key: "",
+  },
+  methods: {},
+  mounted() {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/search/movie?api_key=" +
+          this.api_key +
+          "&query" +
+          this.query
+      )
+      .then((response) => {
+        this.movies = response.data.response;
+        console.log(response);
+      });
+  },
 });

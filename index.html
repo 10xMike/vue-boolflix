@@ -14,15 +14,32 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <img class="logo" src="./assets/img/Netflix_Logo_RGB.png" alt="">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+    <div id="app">
+        <!-- Navbar + search & button -->
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <img class="logo" src="./assets/img/Netflix_Logo_RGB.png" alt="">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <!-- /navbar + search & button -->
+
+        <div class="catalogo">
+            <div class="movie" v-for="movie in movies">
+                <div class="title">{{title}}</div>
+                <div class="original_title">{{original.title}}</div>
+                <div class="language">{{original.language}}</div>
+                <div class="rating">{{vote.average}}</div>
+            </div>
         </div>
-      </nav>
+
+    </div>
+
+
+
 
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
