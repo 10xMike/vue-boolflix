@@ -22,7 +22,7 @@ const app = new Vue({
         )
         .then((response) => {
           this.dataResponse = response.data.results;
-          console.log(this.dataResponse);
+          console.log(this.results);
         });
     },
   },
