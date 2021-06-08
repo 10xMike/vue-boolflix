@@ -21,7 +21,7 @@ const app = new Vue({
             this.query
         )
         .then((response) => {
-          this.dataResponse = response.data.dataResponse;
+          this.dataResponse = response.data.results;
           console.log(this.dataResponse);
         });
     },
