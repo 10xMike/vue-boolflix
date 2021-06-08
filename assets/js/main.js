@@ -7,8 +7,7 @@ Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori pe
 const app = new Vue({
   el: "#app",
   data: {
-    movies: [],
-    tv: [],
+    dataResponse: {},
     query: "",
     api_key: "0b9ec2a9d60e7c467ae3f0b1da81bd7a",
   },
@@ -22,8 +21,8 @@ const app = new Vue({
             this.query
         )
         .then((response) => {
-          this.dataResponse = response.data.response;
-          console.log(this.movies);
+          this.dataResponse = response.data.dataResponse;
+          console.log(this.dataResponse);
         });
     },
   },

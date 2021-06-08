@@ -20,25 +20,22 @@
             <div class="container-fluid">
                 <img class="logo" src="./assets/img/Netflix_Logo_RGB.png" alt="">
                 <div class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
                         v-model="query">
-                    <input type="button" @click="fetchMovie" class="btn btn-outline-success"
-                        type="submit">Search</input>
-                    </form>
+                    <button @click="fetchMovie" class="btn btn-outline-success" type="submit">Search</button>
                 </div>
         </nav>
         <!-- /navbar + search & button -->
 
-        <div class="catalogo">
-            <ul>
-                <li class="movie" v-for="movie in movies">
-                    <div class=" title">{{title}}</div>
-                    <div class="original_title">{{original.title}}</div>
-                    <div class="language">{{original.language}}</div>
-                    <div class="rating">{{vote.average}}</div>
-                </li>
-            </ul>
-        </div>
+        <ul>
+            <li class="movie" v-for="movie in dataResponse">
+                <div class="title">{{movie.title}}</div>
+                <div class="original_title">{{movie.original.title}}</div>
+                <div class="language">{{movie.original_language}}</div>
+                <div class="rating">{{movie.vote_average}}</div>
+            </li>
+        </ul>
+
 
     </div>
 
