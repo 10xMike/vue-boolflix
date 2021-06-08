@@ -8,22 +8,23 @@ const app = new Vue({
   el: "#app",
   data: {
     movies: [],
-    shows: [],
+    tv: [],
     query: "",
-    api_key: "",
+    api_key: "0b9ec2a9d60e7c467ae3f0b1da81bd7a",
   },
-  methods: {},
-  mounted() {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/search/movie?api_key=" +
-          this.api_key +
-          "&query" +
-          this.query
-      )
-      .then((response) => {
-        this.movies = response.data.response;
-        console.log(response);
-      });
+  methods: {
+    fetchMovie() {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=" +
+            this.api_key +
+            "&query=" +
+            this.query
+        )
+        .then((response) => {
+          this.dataResponse = response.data.response;
+          console.log(this.movies);
+        });
+    },
   },
 });
