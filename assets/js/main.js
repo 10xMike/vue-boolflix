@@ -7,10 +7,13 @@ Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori pe
 const app = new Vue({
     el: '#app',
     data:{
-
+        movies: [],
+        shows: [],
     },
     methods:{},
     mounted(){
+        axios
+        .get("https://api.themoviedb.org/3/")
 
     },
 });
