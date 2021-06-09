@@ -11,3 +11,10 @@ body{
 .logo{
     width: 100px;
 }
+.star{
+    color: aliceblue;
+    font-size: 20px;
+}
+.StarredRating.star{
+    color: gold;
+}

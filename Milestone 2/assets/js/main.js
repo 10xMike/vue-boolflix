@@ -16,6 +16,7 @@ const app = new Vue({
     query: "",
     api_key: "0b9ec2a9d60e7c467ae3f0b1da81bd7a",
     results: [],
+    error: null,
   },
   methods: {
     fetchMovie() {
@@ -28,7 +29,10 @@ const app = new Vue({
         )
         .then((response) => {
           this.dataResponse = response.data.results;
-          console.log(this.results);
+        })
+        .catch((e) => {
+          console.error(e);
+          this.error = "We're sorry, there's nothing to show";
         });
     },
     toFiveStars(num) {
@@ -36,4 +40,5 @@ const app = new Vue({
       return Math.ceil(roundNumber / 2);
     },
   },
+  mounted() {},
 });
