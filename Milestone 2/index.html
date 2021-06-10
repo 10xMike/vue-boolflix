@@ -11,6 +11,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- Foglio di stile CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/img/netflix_logo_icon_170919.png" type="image/x-icon">
 </head>
 
@@ -35,7 +36,8 @@
                 <div class="language">{{movie.original_language}}</div>
                 <div class="rating">
                     <div class="stars">
-                        <i class="fas fa-star star" v-for="(star, i) in 5" :class="{StarredRating: i < toFiveStars(movie.vote_average)}"></i>
+                        <i class="fas fa-star star" v-for="(star, i) in 5"
+                            :class="{StarredRating: i < toFiveStars(movie.vote_average)}"></i>
                     </div>
                     <div>{{toFiveStars(movie.vote_average)}} out of 5</div>
                 </div>

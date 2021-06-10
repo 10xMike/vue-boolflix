@@ -8,6 +8,14 @@ body{
     background-color: navy;
     color: white;
 }
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+li.movie{
+    margin: 1rem;
+}
 .logo{
     width: 100px;
 }
