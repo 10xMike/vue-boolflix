@@ -19,9 +19,9 @@ li.movie{
 .logo{
     width: 100px;
 }
-.star{
-    color: aliceblue;
-    font-size: 20px;
+.stars{
+    font-size: 1rem;
+    color: white;
 }
 .StarredRating.star{
     color: gold;
