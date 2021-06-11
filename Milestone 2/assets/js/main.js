@@ -37,14 +37,14 @@ const app = new Vue({
         .catch((e) => {
           console.error(e);
           this.error = "We're sorry, there's no movie to display";
-        });
+        }); //NOT WORKING, please provide a fix
         tvQuery.then((response) =>{
           this.tvShows = response.data.results;
         })
         .catch((e)=> {
           console.error(e);
           this.error = "We're sorry, there's no tv show to display";
-        })
+        }); //NOT WORKING, please provide a fix
     },
     toFiveStars(num) {
       const roundNumber = Math.ceil(num);
