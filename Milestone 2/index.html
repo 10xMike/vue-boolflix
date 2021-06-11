@@ -25,26 +25,48 @@
                 <img class="logo" src="./assets/img/Netflix_Logo_RGB.png" alt="">
                 <div class="d-flex">
                     <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
-                        v-model="query" @keydown.enter="fetchMovie">
-                    <button @click="fetchMovie" class="btn btn-outline-success" type="submit">Search</button>
+                        v-model="query" @keydown.enter="search">
+                    <button @click="search" class="btn btn-outline-success" type="submit">Search</button>
                 </div>
         </nav>
         <!-- /navbar + search & button -->
 
-        <ul>
-            <li class="movie" v-for="movie in dataResponse">
-                <div class="title">{{movie.title}}</div>
-                <div class="original_title">{{movie.original_title}}</div>
-                <div class="language">{{movie.original_language}}</div>
-                <div class="rating">
-                    <div class="stars">
-                        <i class="fas fa-star star" v-for="(star, i) in 5"
-                            :class="{StarredRating: i < toFiveStars(movie.vote_average)}"></i>
+        <div>
+            <h4 class="text-center">Movies</h4>
+            <ul>
+                <li class="movie" v-for="movie in movies">
+                    <div class="title">{{movie.title}}</div>
+                    <div class="original_title">{{movie.original_title}}</div>
+                    <div class="language">{{movie.original_language}}</div>
+                    <div class="rating">
+                        <div class="stars">
+                            <i class="fas fa-star star" v-for="(star, i) in 5"
+                                :class="{StarredRating: i < toFiveStars(movie.vote_average)}"></i>
+                        </div>
+                        <div>{{toFiveStars(movie.vote_average)}} out of 5</div>
                     </div>
-                    <div>{{toFiveStars(movie.vote_average)}} out of 5</div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-center">Tv Shows</h4>
+            <ul>
+                <li class="tvShow" v-for="tvShow in tvShows">
+                    <div class="title">{{tvShow.name}}</div>
+                    <div class="original_title">{{tvShow.original_name}}</div>
+                    <div class="language">{{tvShow.original_language}}</div>
+                    <div class="rating">
+                        <div class="stars">
+                            <i class="fas fa-star star" v-for="(star, i) in 5"
+                                :class="{StarredRating: i < toFiveStars(tvShow.vote_average)}"></i>
+                        </div>
+                        <div>{{toFiveStars(tvShow.vote_average)}} out of 5</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
 
         <template v-if="error">
             <h2>{{error}}</h2>

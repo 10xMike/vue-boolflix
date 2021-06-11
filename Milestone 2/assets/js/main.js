@@ -12,28 +12,39 @@ https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&
 const app = new Vue({
   el: "#app",
   data: {
-    dataResponse: {},
+    movies: {},
+    tvShows: {},
     query: "",
     api_key: "0b9ec2a9d60e7c467ae3f0b1da81bd7a",
-    results: [],
+    //results: [],
     error: null,
   },
   methods: {
-    fetchMovie() {
-      axios
+    search() {
+      const movieQuery = axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + this.api_key + '&query=' + this.query)
+      const tvQuery = axios.get('https://api.themoviedb.org/3/search/tv?api_key=0b9ec2a9d60e7c467ae3f0b1da81bd7a&query=' + this.query)
+
+/*       axios
         .get(
           "https://api.themoviedb.org/3/search/movie?api_key=" +
             this.api_key +
             "&query=" +
             this.query
-        )
-        .then((response) => {
-          this.dataResponse = response.data.results;
+        ) */
+        movieQuery.then((response) => {
+          this.movies = response.data.results;
         })
         .catch((e) => {
           console.error(e);
-          this.error = "We're sorry, there's nothing to show";
+          this.error = "We're sorry, there's no movie to display";
         });
+        tvQuery.then((response) =>{
+          this.tvShows = response.data.results;
+        })
+        .catch((e)=> {
+          console.error(e);
+          this.error = "We're sorry, there's no tv show to display";
+        })
     },
     toFiveStars(num) {
       const roundNumber = Math.ceil(num);
